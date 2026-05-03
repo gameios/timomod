@@ -11,6 +11,143 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <style>
+
+  /* Tối ưu popup */
+  .popup {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #28a8ea;
+    color: white;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    display: none;
+    width: 80%;
+    max-width: 420px;
+    text-align: center;
+    animation: fadeIn 0.4s ease-out;
+  }
+
+  .popup .popup-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+
+  .popup .popup-button {
+    background: #fff;
+    color: #28a8ea;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-weight: 600;
+  }
+
+  .popup .popup-button:hover {
+    background: #28a8ea;
+    color: #fff;
+    transform: scale(1.05);
+  }
+
+  .popup .close-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 26px;
+    color: #fff;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    padding: 5px 10px;
+  }
+
+  /* Nền tối khi popup hiển thị */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9998;
+    display: none;
+  }
+
+  /* Hiệu ứng khi popup xuất hiện */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateX(-50%) translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  }
+
+
+  /* Các style cho popup */
+  .popup {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #28a8ea;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    display: none;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+  }
+  .popup .popup-content {
+    font-size: 18px;
+  }
+  .popup .popup-title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .popup .popup-button {
+    background: #fff;
+    color: #28a8ea;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+  }
+  .popup .close-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 22px;
+    color: white;
+    cursor: pointer;
+  }
+  /* Style cho phần nền tối */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+    display: none;
+  }
+
     :root{
       --bg:#050505;
       --surface:#101014;
@@ -39,6 +176,170 @@
       line-height:1.55;
       overflow-x:hidden;
     }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(1120px, calc(100% - 40px));margin-inline:auto}
+
+    .noise{
+      pointer-events:none;position:fixed;inset:0;z-index:0;opacity:.05;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    header{
+      position:sticky;top:0;z-index:10;
+      backdrop-filter:saturate(180%) blur(22px);
+      background:rgba(5,5,5,.72);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:-.03em}
+    .brand-mark{
+      width:38px;height:38px;border-radius:12px;display:grid;place-items:center;
+      background:linear-gradient(145deg,#fff,#9cccff 45%,#8562ff);
+      color:#050505;box-shadow:0 0 40px rgba(10,132,255,.3)
+    }
+    .nav-links{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.72);font-size:14px}
+    .nav-links a{padding:10px 14px;border-radius:999px;transition:.2s ease}
+    .nav-links a:hover{background:rgba(255,255,255,.08);color:#fff}
+    .nav-cta{padding:10px 16px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.06);font-weight:700;font-size:14px;transition:.2s ease}
+    .nav-cta:hover{transform:translateY(-1px);background:#fff;color:#050505}
+
+    main{position:relative;z-index:1}
+    .hero{padding:88px 0 70px}
+    .hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:42px;align-items:center}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;
+      background:rgba(10,132,255,.12);border:1px solid rgba(10,132,255,.28);color:#8ec7ff;
+      font-size:13px;font-weight:800;margin-bottom:20px
+    }
+    h1{font-size:clamp(46px,8vw,92px);line-height:.95;letter-spacing:-.075em;font-weight:900;margin-bottom:22px}
+    .gradient-text{background:linear-gradient(90deg,#fff,#79bbff 42%,#b59cff 74%,#fff);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero p{font-size:clamp(18px,2.1vw,23px);color:var(--muted);max-width:640px;letter-spacing:-.025em}
+    .actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+    .btn{
+      min-height:52px;padding:0 22px;border-radius:16px;display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      font-weight:800;border:1px solid var(--line);transition:.22s ease;cursor:pointer
+    }
+    .btn-primary{background:linear-gradient(135deg,var(--blue),var(--purple));border:0;box-shadow:0 18px 55px rgba(10,132,255,.28)}
+    .btn-secondary{background:rgba(255,255,255,.06)}
+    .btn:hover{transform:translateY(-2px);filter:saturate(1.15)}
+
+    .device{
+      position:relative;padding:18px;border-radius:46px;background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(255,255,255,.04));
+      border:1px solid rgba(255,255,255,.16);box-shadow:var(--shadow)
+    }
+    .screen{border-radius:34px;overflow:hidden;background:linear-gradient(180deg,#17395a 0%,#050505 48%);padding:34px;min-height:500px;position:relative;border:8px solid #050505}
+    .screen:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 10%,rgba(10,132,255,.25),transparent 35%);pointer-events:none}
+    .status{display:flex;justify-content:space-between;color:rgba(255,255,255,.74);font-weight:700;position:relative;z-index:1}
+    .dots{display:flex;gap:9px}.dots span{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.78)}
+    .screen-title{font-size:54px;line-height:.9;font-weight:900;letter-spacing:-.07em;margin:55px 0 32px;position:relative;z-index:1}
+    .mini-list{display:grid;gap:16px;position:relative;z-index:1}
+    .mini-card{display:flex;align-items:center;gap:16px;padding:18px;border-radius:24px;background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px)}
+    .mini-icon{width:58px;height:58px;border-radius:18px;background:rgba(255,255,255,.12);display:grid;place-items:center;font-size:22px}
+    .mini-card b{display:block;font-size:20px;letter-spacing:-.03em}.mini-card span{color:rgba(255,255,255,.58)}
+
+    section{padding:76px 0;border-top:1px solid var(--line)}
+    .section-head{text-align:center;margin-bottom:34px}.section-head h2{font-size:clamp(32px,4vw,48px);letter-spacing:-.055em;line-height:1.05}.section-head p{color:var(--muted);margin-top:10px;font-size:17px}
+
+    .community-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+    .community-card{
+      display:flex;align-items:center;gap:22px;padding:28px;border-radius:var(--radius);background:linear-gradient(145deg,rgba(255,255,255,.1),rgba(255,255,255,.04));
+      border:1px solid var(--line);box-shadow:0 16px 55px rgba(0,0,0,.25);transition:.25s ease;min-height:172px
+    }
+    .community-card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.24);background:linear-gradient(145deg,rgba(255,255,255,.13),rgba(255,255,255,.05))}
+    .social-icon{width:72px;height:72px;border-radius:24px;display:grid;place-items:center;font-size:34px;flex:0 0 auto}.zalo{background:#0a84ff}.telegram{background:#28a8ea}
+    .community-card h3{font-size:24px;letter-spacing:-.04em}.community-card p{color:var(--muted);margin:6px 0 14px}.link-line{display:inline-flex;gap:8px;align-items:center;color:#8ec7ff;font-weight:800;font-size:14px}
+
+    .catalog{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .app-card{padding:24px;border-radius:var(--radius);background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.045));border:1px solid var(--line);transition:.25s ease;position:relative;overflow:hidden}
+    .app-card:before{content:"";position:absolute;inset:-1px;background:radial-gradient(circle at 20% 0%,rgba(10,132,255,.2),transparent 35%);opacity:0;transition:.25s ease}
+    .app-card:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.25)}.app-card:hover:before{opacity:1}
+    .app-top{position:relative;z-index:1;display:flex;gap:16px;align-items:center;margin-bottom:18px}.app-icon{width:76px;height:76px;border-radius:22px;object-fit:cover;background:#161616}.app-title h3{font-size:21px;letter-spacing:-.045em}.version{display:inline-flex;margin-top:7px;padding:4px 10px;border-radius:999px;background:rgba(10,132,255,.14);color:#8ec7ff;font-size:13px;font-weight:800}
+    .app-card p{position:relative;z-index:1;color:var(--muted);min-height:52px}.badges{position:relative;z-index:1;display:flex;gap:8px;margin:18px 0}.badge{padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.08);font-size:12px;font-weight:800;color:rgba(255,255,255,.82)}
+    .download{position:relative;z-index:1;width:100%;height:48px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.07);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;gap:10px;transition:.2s ease}.download:hover{background:#fff;color:#050505}
+
+    footer{border-top:1px solid var(--line);padding:34px 0 46px;color:var(--muted)}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}.footer-brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:900}.footer-links{display:flex;gap:14px}.footer-links a:hover{color:#fff}
+
+    @media (max-width:900px){.hero-grid{grid-template-columns:1fr}.device{max-width:560px;margin:auto}.catalog,.community-grid{grid-template-columns:1fr}.nav-links{display:none}.footer-inner{flex-direction:column;text-align:center}.hero{padding-top:58px}.screen{min-height:440px}.screen-title{font-size:46px}}
+    @media (max-width:520px){.container{width:min(100% - 28px,1120px)}.hero{padding-bottom:50px}.screen{padding:22px;border-width:6px;border-radius:28px;min-height:390px}.device{border-radius:36px;padding:12px}.screen-title{font-size:40px;margin:42px 0 24px}.mini-card{padding:14px;border-radius:20px}.mini-icon{width:50px;height:50px}.mini-card b{font-size:17px}.community-card{padding:22px;align-items:flex-start}.social-icon{width:60px;height:60px;border-radius:20px}.actions .btn{width:100%}h1{font-size:52px}}
+  </style>
+</head>
+<body>
+
+  <div class="overlay" id="overlay"></div>
+  <!-- Popup "Tham gia nhóm Telegram" -->
+  <div class="popup" id="popup">
+    <div class="close-btn" id="close-btn">×</div>
+    <div class="popup-content">
+      <div class="popup-title">Tham gia nhóm Telegram</div>
+      <p>Nhấn vào nút dưới đây để tham gia nhóm Telegram của TIMO MOD!</p>
+      <a href="https://t.me/SOIMAPMOD" target="_blank">
+        <button class="popup-button">Tham gia ngay</button>
+      </a>
+    </div>
+  </div>
+
+
+  <!-- Nền tối khi popup hiển thị -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Popup quảng cáo "Tham gia nhóm Telegram" -->
+  <div class="popup" id="popup">
+    <div class="close-btn" id="close-btn">×</div>
+    <div class="popup-content">
+      <div class="popup-title">Tham gia nhóm Telegram</div>
+      <p>Nhấn vào nút dưới đây để tham gia nhóm Telegram của TIMO MOD!</p>
+      <a href="https://t.me/SOIMAPMOD" target="_blank">
+        <button class="popup-button">Tham gia ngay</button>
+      </a>
+    </div>
+  </div>
+
+  <div class="noise"></div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="TIMO MOD">
+        <span class="brand-mark"><i class="fa-solid fa-bolt"></i></span>
+        <span>TIMO MOD</span>
+      </a>
+      <nav class="nav-links" aria-label="Điều hướng">
+        <a href="#community">Cộng đồng</a>
+        <a href="#catalog">App Catalog</a>
+        <a href="#contact">Liên hệ</a>
+      </nav>
+      <a class="nav-cta" href="https://zalo.me/g/qwhonj048" target="_blank" rel="noopener">Tham gia</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><i class="fa-solid fa-sparkles"></i> TIMO MOD APP CATALOG</div>
+          <h1>Tinh gọn.<br><span class="gradient-text">Chuyên nghiệp.</span><br>Dễ dùng.</h1>
+          <p>Trang giới thiệu cộng đồng và danh sách ứng dụng của TIMO MOD. Giao diện mới tập trung vào trải nghiệm mobile, bố cục sạch và thao tác tải nhanh.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#community"><i class="fa-solid fa-users"></i> Tham gia cộng đồng</a>
+            <a class="btn btn-secondary" href="#catalog"><i class="fa-solid fa-layer-group"></i> Xem App Catalog</a>
+          </div>
+        </div>
+
+        <div class="device" aria-hidden="true">
+          <div class="screen">
+            <div class="status"><span>9:41</span><div class="dots"><span></span><span></span><span></span></div></div>
+            <div class="screen-title">TIMO<br>MOD</div>
+            <div class="mini-list">
+              <div class="mini-card"><div class="mini-icon"><i class="fa-solid fa-map"></i></div><div><b>Liên Quân IOS</b><span>v1.61 · Cài trực tiếp</span></div></div>
+              <div class="mini-card"><div class="mini-icon"><i class="fa-solid fa-fire"></i></div><div><b>Free Fire IOS</b><span>Catalog · Hướng dẫn</span></div></div>
+              <div class="mini-card"><div class="mini-icon"><i class="fa-solid fa-gamepad"></i></div><div><b>PUBG IOS</b><span>IPA · Tự cài đặt</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section id="community">
       <div class="container">
@@ -151,5 +452,48 @@
       </div>
     </div>
   </footer>
-</body>
+
+  <script>
+    // Hiển thị popup ngay khi trang được tải
+    window.onload = function() {
+      // Hiển thị popup và overlay ngay lập tức khi trang tải xong
+      document.getElementById('popup').style.display = 'block';
+      document.getElementById('overlay').style.display = 'block';
+
+      // Đóng popup khi nhấn nút "X"
+      document.getElementById('close-btn').onclick = function() {
+        document.getElementById('popup').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+      };
+
+      // Đóng popup khi nhấn vào nền tối (overlay)
+      document.getElementById('overlay').onclick = function() {
+        document.getElementById('popup').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+      };
+    };
+  </script>
+
+
+    <script>
+      // Hiển thị popup ngay khi trang được tải
+      window.onload = function() {
+        document.getElementById('popup').style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+
+        // Đóng popup khi nhấn nút "X"
+        document.getElementById('close-btn').onclick = function() {
+          document.getElementById('popup').style.display = 'none';
+          document.getElementById('overlay').style.display = 'none';
+        };
+
+        // Đóng popup khi nhấn vào nền tối (overlay)
+        document.getElementById('overlay').onclick = function() {
+          document.getElementById('popup').style.display = 'none';
+          document.getElementById('overlay').style.display = 'none';
+        };
+      };
+    </script>
+    </body>
+    
 </html>

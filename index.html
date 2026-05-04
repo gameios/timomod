@@ -5,48 +5,192 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>TIMO MOD | App Catalog</title>
 <style>
-:root{
-  --logo:url("https://i.imgur.com/eR5oPxk.jpeg");
-  --zalo:url("https://i.imgur.com/eR5oPxk.jpeg");
-  --tele:url("https://i.imgur.com/HxoYFd8.jpeg");
-  --bg:#050505;--text:#f5f5f7;--muted:rgba(255,255,255,.62);--line:rgba(255,255,255,.12);
-  --blue:#0a84ff;--purple:#8b5cf6;--radius:28px;--shadow:0 30px 90px rgba(0,0,0,.45)
-}
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{min-height:100vh;color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;line-height:1.55;background:radial-gradient(circle at 12% 8%,rgba(10,132,255,.22),transparent 28%),radial-gradient(circle at 85% 12%,rgba(139,92,246,.22),transparent 32%),var(--bg)}
+body{min-height:100vh;color:#f5f5f7;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;line-height:1.55;background:radial-gradient(circle at 12% 8%,rgba(10,132,255,.22),transparent 28%),radial-gradient(circle at 85% 12%,rgba(139,92,246,.22),transparent 32%),#050505}
 a{color:inherit;text-decoration:none}.container{width:min(1120px,calc(100% - 40px));margin:auto}
-header{position:sticky;top:0;z-index:10;background:rgba(5,5,5,.72);backdrop-filter:blur(22px);border-bottom:1px solid var(--line)}
-.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand,.footer-brand{display:flex;align-items:center;gap:12px;font-weight:900}.brand-mark{width:38px;height:38px;border-radius:12px;background:var(--logo) center/cover;border:1px solid rgba(255,255,255,.16)}
+header{position:sticky;top:0;z-index:10;background:rgba(5,5,5,.72);backdrop-filter:blur(22px);border-bottom:1px solid rgba(255,255,255,.12)}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand,.footer-brand{display:flex;align-items:center;gap:12px;font-weight:900}.brand-logo{width:38px;height:38px;border-radius:12px;object-fit:cover;border:1px solid rgba(255,255,255,.16)}
 .nav-links{display:flex;gap:8px;color:rgba(255,255,255,.72);font-size:14px}.nav-links a,.nav-cta{padding:10px 14px;border-radius:999px}.nav-links a:hover,.nav-cta{background:rgba(255,255,255,.06)}
-section{padding:76px 0;border-top:1px solid var(--line)}.section-head{text-align:center;margin-bottom:34px}.section-head h2{font-size:clamp(32px,4vw,48px);letter-spacing:-.055em}.section-head p,.card p{color:var(--muted)}
+section{padding:76px 0;border-top:1px solid rgba(255,255,255,.12)}.section-head{text-align:center;margin-bottom:34px}.section-head h2{font-size:clamp(32px,4vw,48px);letter-spacing:-.055em}.section-head p,.card p{color:rgba(255,255,255,.62)}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.community{grid-template-columns:repeat(2,1fr)}
-.card{border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(145deg,rgba(255,255,255,.1),rgba(255,255,255,.04));box-shadow:0 16px 55px rgba(0,0,0,.25);transition:.25s;overflow:hidden}.card:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.25)}
-.community .card{display:flex;align-items:center;gap:22px;padding:28px}.social,.app-icon{width:72px;height:72px;border-radius:24px;object-fit:cover;flex:0 0 auto}.zalo{background:var(--zalo) center/cover}.tele{background:var(--tele) center/cover}.social{display:grid;place-items:center;font-size:34px;border:1px solid rgba(255,255,255,.14)}
-.app{padding:24px}.app-top{display:flex;gap:16px;align-items:center;margin-bottom:18px}.app h3,.community h3{font-size:22px;letter-spacing:-.04em}.version,.badge{display:inline-flex;border-radius:999px;font-weight:800}.version{margin-top:7px;padding:4px 10px;background:rgba(10,132,255,.14);color:#8ec7ff;font-size:13px}.badges{display:flex;gap:8px;margin:18px 0}.badge{padding:6px 10px;background:rgba(255,255,255,.08);font-size:12px}.btn{width:100%;height:48px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;font-weight:900}.btn:hover,.tg-later:hover{background:#fff;color:#050505}
-footer{border-top:1px solid var(--line);padding:34px 0 46px;color:var(--muted)}.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}.footer-links{display:flex;gap:14px}
-.tg-modal{position:fixed;inset:0;z-index:99;display:grid;place-items:center;padding:22px;background:rgba(0,0,0,.72);backdrop-filter:blur(18px);opacity:0;visibility:hidden;pointer-events:none;transition:.35s}.tg-modal.show{opacity:1;visibility:visible;pointer-events:auto}.tg-box{position:relative;width:min(460px,100%);text-align:center;border-radius:34px;padding:34px 28px 30px;background:linear-gradient(145deg,rgba(255,255,255,.16),rgba(255,255,255,.055)),rgba(16,16,20,.88);border:1px solid rgba(255,255,255,.18);box-shadow:var(--shadow)}.tg-close{position:absolute;top:16px;right:16px;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.08);color:#fff;font-size:26px}.tg-orb{width:92px;height:92px;margin:4px auto 20px;border-radius:30px;background:var(--tele) center/cover}.tg-label{display:inline-flex;margin-bottom:14px;padding:7px 12px;border-radius:999px;background:rgba(10,132,255,.12);color:#8ec7ff;font-size:13px;font-weight:900}.tg-box h3{font-size:clamp(28px,5vw,38px);line-height:1;margin-bottom:12px}.tg-box p{color:rgba(255,255,255,.68);margin:0 auto 24px;max-width:350px}.tg-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}.tg-join,.tg-later{min-height:50px;padding:0 20px;border-radius:16px;display:inline-flex;align-items:center;justify-content:center;font-weight:900;border:1px solid rgba(255,255,255,.13);cursor:pointer}.tg-join{background:linear-gradient(135deg,var(--blue),var(--purple));color:#fff}.tg-later{background:rgba(255,255,255,.07);color:#fff}body.popup-open{overflow:hidden}
+.card{border:1px solid rgba(255,255,255,.12);border-radius:28px;background:linear-gradient(145deg,rgba(255,255,255,.1),rgba(255,255,255,.04));box-shadow:0 16px 55px rgba(0,0,0,.25);transition:.25s;overflow:hidden}.card:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.25)}
+.community .card{display:flex;align-items:center;gap:22px;padding:28px}.social,.app-icon{width:72px;height:72px;border-radius:24px;object-fit:cover;flex:0 0 auto}.social{border:1px solid rgba(255,255,255,.14)}
+.app{padding:24px}.app-top{display:flex;gap:16px;align-items:center;margin-bottom:18px}.app h3,.community h3{font-size:22px;letter-spacing:-.04em}.version,.badge{display:inline-flex;border-radius:999px;font-weight:800}.version{margin-top:7px;padding:4px 10px;background:rgba(10,132,255,.14);color:#8ec7ff;font-size:13px}.badges{display:flex;gap:8px;margin:18px 0;flex-wrap:wrap}.badge{padding:6px 10px;background:rgba(255,255,255,.08);font-size:12px}.btn{width:100%;height:48px;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;font-weight:900}.btn:hover,.tg-later:hover{background:#fff;color:#050505}
+footer{border-top:1px solid rgba(255,255,255,.12);padding:34px 0 46px;color:rgba(255,255,255,.62)}.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}.footer-links{display:flex;gap:14px}
+.tg-modal{position:fixed;inset:0;z-index:99;display:grid;place-items:center;padding:22px;background:rgba(0,0,0,.72);backdrop-filter:blur(18px);opacity:0;visibility:hidden;pointer-events:none;transition:.35s}.tg-modal.show{opacity:1;visibility:visible;pointer-events:auto}.tg-box{position:relative;width:min(460px,100%);text-align:center;border-radius:34px;padding:34px 28px 30px;background:linear-gradient(145deg,rgba(255,255,255,.16),rgba(255,255,255,.055)),rgba(16,16,20,.88);border:1px solid rgba(255,255,255,.18);box-shadow:0 30px 90px rgba(0,0,0,.45)}.tg-close{position:absolute;top:16px;right:16px;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.08);color:#fff;font-size:26px}.tg-orb{width:92px;height:92px;margin:4px auto 20px;border-radius:30px;object-fit:cover}.tg-label{display:inline-flex;margin-bottom:14px;padding:7px 12px;border-radius:999px;background:rgba(10,132,255,.12);color:#8ec7ff;font-size:13px;font-weight:900}.tg-box h3{font-size:clamp(28px,5vw,38px);line-height:1;margin-bottom:12px}.tg-box p{color:rgba(255,255,255,.68);margin:0 auto 24px;max-width:350px}.tg-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}.tg-join,.tg-later{min-height:50px;padding:0 20px;border-radius:16px;display:inline-flex;align-items:center;justify-content:center;font-weight:900;border:1px solid rgba(255,255,255,.13);cursor:pointer}.tg-join{background:linear-gradient(135deg,#0a84ff,#8b5cf6);color:#fff}.tg-later{background:rgba(255,255,255,.07);color:#fff}body.popup-open{overflow:hidden}
 @media(max-width:900px){.grid,.community{grid-template-columns:1fr}.nav-links{display:none}.footer-inner{flex-direction:column;text-align:center}}@media(max-width:520px){.container{width:min(100% - 28px,1120px)}.community .card{padding:22px;align-items:flex-start}.tg-actions a,.tg-actions button{width:100%}}
 </style>
 </head>
 <body>
-<header><div class="container nav"><a class="brand" href="#top"><span class="brand-mark"></span><span>TIMO MOD</span></a><nav class="nav-links"><a href="#community">Cộng đồng</a><a href="#catalog">App Catalog</a><a href="#contact">Liên hệ</a></nav><a class="nav-cta" href="https://zalo.me/g/qwhonj048" target="_blank">Tham gia</a></div></header>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="#top">
+      <!-- SỬA TRỰC TIẾP: ảnh logo + chữ thương hiệu -->
+      <img class="brand-logo" src="https://i.imgur.com/eR5oPxk.jpeg" alt="Logo">
+      <span>TIMO MOD</span>
+    </a>
+
+    <!-- SỬA TRỰC TIẾP: menu đầu trang -->
+    <nav class="nav-links">
+      <a href="#community">Cộng đồng</a>
+      <a href="#catalog">App Catalog</a>
+      <a href="#contact">Liên hệ</a>
+    </nav>
+
+    <!-- SỬA TRỰC TIẾP: nút bên phải header -->
+    <a class="nav-cta" href="https://zalo.me/g/qwhonj048" target="_blank" rel="noopener">Tham gia</a>
+  </div>
+</header>
+
 <main id="top">
-<section id="community"><div class="container"><div class="section-head"><h2>Cộng đồng TIMO MOD</h2><p>Nhận thông báo, hỗ trợ và cập nhật mới nhất.</p></div><div class="grid community">
-<a class="card" href="https://zalo.me/g/qwhonj048" target="_blank"><div class="social zalo">Z</div><div><h3>Nhóm Zalo</h3><p>Tham gia nhóm để nhận hỗ trợ, trao đổi và cập nhật nhanh.</p><b>Mở nhóm Zalo ↗</b></div></a>
-<a class="card" href="https://t.me/SOIMAPMOD" target="_blank"><div class="social tele">✈</div><div><h3>Kênh Telegram</h3><p>Theo dõi kênh để nhận thông báo và link tải mới nhất.</p><b>Mở Telegram ↗</b></div></a>
-</div></div></section>
-<section id="catalog"><div class="container"><div class="section-head"><h2>App Catalog</h2><p>Mỗi mục bên dưới là 1 app tượng trưng, bạn chỉ cần nhân bản rồi sửa ảnh, link, tiêu đề.</p></div><div class="grid">
-<article class="card app"><div class="app-top"><img class="app-icon" src="https://i.imgur.com/3jMRNKb.jpeg" alt="App iOS"><div><h3>App iOS mẫu</h3><span class="version">v1.0</span></div></div><p>Link ảnh, link chuyển tới, tiêu đề, phiên bản, mô tả, nhãn và nút tải.</p><div class="badges"><span class="badge">iOS</span><span class="badge">Cài trực tiếp</span></div><a class="btn" href="https://example.com" target="_blank">⬇ Tải xuống</a></article>
-<article class="card app"><div class="app-top"><img class="app-icon" src="https://i.imgur.com/3jMRNKb.jpeg" alt="App Android"><div><h3>App Android mẫu</h3><span class="version">APK</span></div></div><p>Mẫu dành cho file APK Android hoặc link tải Android.</p><div class="badges"><span class="badge">Android</span><span class="badge">APK</span></div><a class="btn" href="https://example.com" target="_blank">⬇ Tải xuống</a></article>
-<article class="card app"><div class="app-top"><img class="app-icon" src="https://i.imgur.com/eR5oPxk.jpeg" alt="Shop mẫu"><div><h3>Shop / Link mẫu</h3><span class="version">Auto</span></div></div><p>Mẫu dành cho shop mua key, trang hướng dẫn hoặc link chuyển hướng khác.</p><div class="badges"><span class="badge">Shop</span><span class="badge">Key</span></div><a class="btn" href="https://example.com" target="_blank">🛒 Mở link</a></article>
-</div></div></section>
+
+<section id="community">
+  <div class="container">
+    <div class="section-head">
+      <!-- SỬA TRỰC TIẾP: tiêu đề khu cộng đồng -->
+      <h2>Cộng đồng TIMO MOD</h2>
+      <p>Nhận thông báo, hỗ trợ và cập nhật mới nhất.</p>
+    </div>
+
+    <div class="grid community">
+      <!-- MỤC CỘNG ĐỒNG 1: sửa ảnh, link, tiêu đề, mô tả ngay tại đây -->
+      <a class="card" href="https://zalo.me/g/qwhonj048" target="_blank" rel="noopener">
+        <img class="social" src="https://i.imgur.com/eR5oPxk.jpeg" alt="Zalo">
+        <div>
+          <h3>Nhóm Zalo</h3>
+          <p>Tham gia nhóm để nhận hỗ trợ, trao đổi và cập nhật nhanh.</p>
+          <b>Mở nhóm Zalo ↗</b>
+        </div>
+      </a>
+
+      <!-- MỤC CỘNG ĐỒNG 2: sửa ảnh, link, tiêu đề, mô tả ngay tại đây -->
+      <a class="card" href="https://t.me/SOIMAPMOD" target="_blank" rel="noopener">
+        <img class="social" src="https://i.imgur.com/HxoYFd8.jpeg" alt="Telegram">
+        <div>
+          <h3>Kênh Telegram</h3>
+          <p>Theo dõi kênh để nhận thông báo và link tải mới nhất.</p>
+          <b>Mở Telegram ↗</b>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="catalog">
+  <div class="container">
+    <div class="section-head">
+      <!-- SỬA TRỰC TIẾP: tiêu đề khu app -->
+      <h2>App Catalog</h2>
+      <p>Mỗi app là một block độc lập. Muốn thêm app thì copy một block rồi sửa trực tiếp.</p>
+    </div>
+
+    <div class="grid">
+      <!-- APP 1: sửa trực tiếp ảnh, tiêu đề, phiên bản, mô tả, nhãn, link nút -->
+      <article class="card app">
+        <div class="app-top">
+          <img class="app-icon" src="https://i.imgur.com/3jMRNKb.jpeg" alt="App iOS">
+          <div>
+            <h3>App iOS mẫu</h3>
+            <span class="version">v1.0</span>
+          </div>
+        </div>
+        <p>Bản iOS cài trực tiếp. Sửa mô tả ngay trong dòng này.</p>
+        <div class="badges">
+          <span class="badge">iOS</span>
+          <span class="badge">Cài trực tiếp</span>
+        </div>
+        <a class="btn" href="https://example.com" target="_blank" rel="noopener">⬇ Tải xuống</a>
+      </article>
+
+      <!-- APP 2: sửa trực tiếp ảnh, tiêu đề, phiên bản, mô tả, nhãn, link nút -->
+      <article class="card app">
+        <div class="app-top">
+          <img class="app-icon" src="https://i.imgur.com/3jMRNKb.jpeg" alt="App Android">
+          <div>
+            <h3>App Android mẫu</h3>
+            <span class="version">APK</span>
+          </div>
+        </div>
+        <p>Bản Android hoặc file APK. Sửa mô tả ngay trong dòng này.</p>
+        <div class="badges">
+          <span class="badge">Android</span>
+          <span class="badge">APK</span>
+        </div>
+        <a class="btn" href="https://example.com" target="_blank" rel="noopener">⬇ Tải xuống</a>
+      </article>
+
+      <!-- APP 3: sửa trực tiếp ảnh, tiêu đề, phiên bản, mô tả, nhãn, link nút -->
+      <article class="card app">
+        <div class="app-top">
+          <img class="app-icon" src="https://i.imgur.com/eR5oPxk.jpeg" alt="Shop">
+          <div>
+            <h3>Shop mua key mẫu</h3>
+            <span class="version">Shop</span>
+          </div>
+        </div>
+        <p>Trang mua key hoặc link dịch vụ. Sửa mô tả ngay trong dòng này.</p>
+        <div class="badges">
+          <span class="badge">Shop</span>
+          <span class="badge">Key</span>
+        </div>
+        <a class="btn" href="https://example.com" target="_blank" rel="noopener">🛒 Mua ngay</a>
+      </article>
+    </div>
+  </div>
+</section>
+
 </main>
-<footer id="contact"><div class="container footer-inner"><div><div class="footer-brand"><span class="brand-mark"></span>TIMO MOD</div><p style="margin-top:10px">© 2026 TIMO MOD. All rights reserved.</p></div><div class="footer-links"><a href="#community">Cộng đồng</a><a href="#catalog">App Catalog</a><a href="https://zalo.me/g/qwhonj048" target="_blank">Zalo</a></div></div></footer>
-<div id="telegramPopup" class="tg-modal"><div class="tg-box"><button class="tg-close" type="button">×</button><div class="tg-orb"></div><div class="tg-label">⚡ Cập nhật nhanh</div><h3>Tham gia Telegram</h3><p>Vào kênh Telegram để nhận thông báo app mới, link tải mới nhất và hỗ trợ nhanh từ TIMO MOD.</p><div class="tg-actions"><a class="tg-join" href="https://t.me/SOIMAPMOD" target="_blank">✈ Tham gia ngay</a><button class="tg-later" type="button">Để sau</button></div></div></div>
+
+<footer id="contact">
+  <div class="container footer-inner">
+    <div>
+      <!-- SỬA TRỰC TIẾP: logo + chữ footer -->
+      <div class="footer-brand">
+        <img class="brand-logo" src="https://i.imgur.com/eR5oPxk.jpeg" alt="Logo">
+        TIMO MOD
+      </div>
+      <p style="margin-top:10px">© 2026 TIMO MOD. All rights reserved.</p>
+    </div>
+
+    <!-- SỬA TRỰC TIẾP: link footer -->
+    <div class="footer-links">
+      <a href="#community">Cộng đồng</a>
+      <a href="#catalog">App Catalog</a>
+      <a href="https://zalo.me/g/qwhonj048" target="_blank" rel="noopener">Zalo</a>
+    </div>
+  </div>
+</footer>
+
+<!-- POPUP TELEGRAM: sửa trực tiếp ảnh, tiêu đề, mô tả, link nút -->
+<div id="telegramPopup" class="tg-modal" role="dialog" aria-modal="true">
+  <div class="tg-box">
+    <button class="tg-close" type="button" aria-label="Đóng">×</button>
+
+    <img class="tg-orb" src="https://i.imgur.com/HxoYFd8.jpeg" alt="Telegram">
+
+    <div class="tg-label">⚡ Cập nhật nhanh</div>
+    <h3>Tham gia Telegram</h3>
+    <p>Vào kênh Telegram để nhận app mới, link tải mới nhất và hỗ trợ nhanh.</p>
+
+    <div class="tg-actions">
+      <a class="tg-join" href="https://t.me/SOIMAPMOD" target="_blank" rel="noopener">Tham gia ngay</a>
+      <button class="tg-later" type="button">Để sau</button>
+    </div>
+  </div>
+</div>
+
 <script>
-const popup=document.getElementById("telegramPopup"),close=()=>{popup.classList.remove("show");document.body.classList.remove("popup-open")};
-setTimeout(()=>{popup.classList.add("show");document.body.classList.add("popup-open")},450);
-document.querySelector(".tg-close").onclick=close;document.querySelector(".tg-later").onclick=close;popup.onclick=e=>{if(e.target===popup)close()};document.onkeydown=e=>{if(e.key==="Escape")close()};
+document.addEventListener("DOMContentLoaded",function(){
+  const popup=document.getElementById("telegramPopup"),closeBtn=document.querySelector(".tg-close"),laterBtn=document.querySelector(".tg-later");
+  function openPopup(){popup.classList.add("show");document.body.classList.add("popup-open")}
+  function closePopup(){popup.classList.remove("show");document.body.classList.remove("popup-open")}
+  setTimeout(openPopup,450);
+  closeBtn.onclick=closePopup;laterBtn.onclick=closePopup;
+  popup.onclick=e=>{if(e.target===popup)closePopup()};
+  document.onkeydown=e=>{if(e.key==="Escape")closePopup()};
+});
 </script>
+
 </body>
 </html>
